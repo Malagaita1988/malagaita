@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diseño y desarrollo web personalizado para tu negocio. Soluciones a medida que impulsan tu presencia digital.">
+    <meta name="theme-color" content="#1F2933">
+    <title>Impulso Digital Web - Desarrollo Web Profesional</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1F2933; /* Fondo oscuro para todo el sitio */
+            color: #F5F7FA; /* Texto claro para mejor contraste */
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #27303F;
+            color: #F5F7FA;
+            padding: 2em 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        .logo {
+            margin-left: 2em;
+        }
+        .logo img {
+            max-height: 250px; /* Ajusta el tamaño del logotipo */
+        }
+        .header-content {
+            flex: 1;
+            text-align: center;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+        }
+
+        /* Estilo oscuro y agresivo para los botones de CTA */
+        .cta-button {
+            background-color: #E63946;
+            color: white;
+            padding: 1.2em 2.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 1em;
+            display: inline-block;
+            font-size: 1.2em;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #D62839;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .section {
+            padding: 3em 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .section h2 {
+            font-size: 2.4em;
+            color: #F5F7FA;
+        }
+        .section p {
+            font-size: 1.2em;
+            color: #D3D8DE;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .services {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2em;
+        }
+        .service {
+            background-color: #27303F;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 22%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .service h3 {
+            color: #E63946;
+        }
+        .service p {
+            color: #D3D8DE;
+        }
+        .service img {
+            max-width: 100px;
+            margin-bottom: 1em;
+        }
+
+        .form-container {
+            background-color: #27303F;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 3em auto 0;
+            text-align: left;
+            color: #F5F7FA;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #E63946;
+        }
+        .form-container input, .form-container button {
+            width: 100%;
+            padding: 1em;
+            margin: 0.5em 0;
+            border-radius: 5px;
+            border: 1px solid #B0BEC5;
+            font-size: 1em;
+        }
+        .form-container button {
+            background-color: #E63946;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 1.2em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-container button:hover {
+            background-color: #D62839;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: #121721;
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+        }
+        footer a {
+            color: #E63946;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <!-- Aquí puedes colocar tu logotipo -->
+        <img src="logo.webp" alt="Logotipo Impulso Digital Web">
+    </div>
+    <div class="header-content">
+        <h1>Impulso Digital Web</h1>
+        <p>Transforma tu negocio con un sitio web profesional y efectivo. Creamos soluciones digitales a medida.</p>
+        <a href="#formulario" class="cta-button">Solicita tu presupuesto</a>
+    </div>
+</header>
+
+<section class="section" id="services">
+    <h2>Nuestros Servicios</h2>
+    <div class="services container">
+        <div class="service">
+            <img src="web_design.webp" alt="Icono Diseño Web">
+            <h3>Diseño Web</h3>
+            <p>Diseñamos sitios web atractivos y funcionales, adaptados a las necesidades de tu negocio.</p>
+        </div>
+        <div class="service">
+            <img src="web_developmet.webp" alt="Icono Desarrollo Web">
+            <h3>Desarrollo a Medida</h3>
+            <p>Desarrollamos plataformas personalizadas que cumplen con los objetivos de tu empresa.</p>
+        </div>
+        <div class="service">
+            <img src="seo.webp" alt="Icono SEO">
+            <h3>Optimización SEO</h3>
+            <p>Mejoramos el posicionamiento de tu sitio web para que atraigas más visitas y clientes potenciales.</p>
+        </div>
+        <div class="service">
+            <img src="leads.webp" alt="Icono Captación de Leads">
+            <h3>Captación de Leads</h3>
+            <p>Implementamos estrategias avanzadas para generar leads de alta calidad que impulsen tu negocio.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <h2>¿Por qué Elegirnos?</h2>
+    <p>Nuestro equipo de desarrollo web cuenta con años de experiencia creando sitios innovadores y eficaces para empresas de todos los tamaños. Nos especializamos en diseño funcional, desarrollo optimizado y posicionamiento SEO para asegurarnos de que tu sitio destaque entre la competencia.</p>
+</section>
+
+<section class="section" id="formulario">
+    <h2>¿Interesado en saber más?</h2>
+    <div class="form-container">
+        <h2>Solicita tu presupuesto</h2>
+        <form id="leadForm" action="submit_lead.php" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            <input type="tel" name="telefono" placeholder="Tu Número de Teléfono" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 Impulso Digital Web. Todos los derechos reservados.</p>
+    <p>Síguenos en <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+</footer>
+
+<script>
+    // Animación suave en el scroll
+    document.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.section, header');
+        const scrollY = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < window.innerHeight - 100) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    // Validación del formulario
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', function(event) {
+        const nombre = form.nombre.value;
+        const email = form.email.value;
+        const telefono = form.telefono.value;
+
+        if (!nombre || !email || !telefono) {
+            alert('Por favor completa todos los campos');
+            event.preventDefault();
+        } else {
+            alert('Formulario enviado correctamente');
+        }
+    });
+</script>
+
+</body>
+</html>
