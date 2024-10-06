@@ -29,16 +29,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            flex-wrap: wrap;
         }
         .logo img {
             max-width: 150px;
         }
         .header-content {
             text-align: center;
+            flex: 1;
         }
         .header-content h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin: 0.5em 0;
         }
         .header-content p {
@@ -50,18 +51,16 @@
         .cta-button {
             background-color: #E63946;
             color: white;
-            padding: 1em 2em;
+            padding: 1em;
             text-transform: uppercase;
             font-weight: bold;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            text-align: center;
-            white-space: normal; /* Permite que el texto se ajuste en múltiples líneas */
-            word-wrap: break-word; /* Rompe palabras largas si es necesario */
+            width: 100%;
+            max-width: 300px;
         }
-
         .cta-button:hover {
             background-color: #D62839;
             transform: scale(1.05);
@@ -81,8 +80,8 @@
         }
         .services {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
         .service {
             background-color: #27303F;
@@ -94,10 +93,13 @@
             max-width: 500px;
             text-align: center;
         }
+
+        /* Ajuste del tamaño de las imágenes en la sección de servicios */
         .service img {
-            max-width: 80px;
+            max-width: 150px;
             margin-bottom: 1em;
         }
+
         .service h3 {
             color: #E63946;
             font-size: 1.5em;
@@ -161,19 +163,23 @@
 
         /* Media Queries para dispositivos móviles */
         @media screen and (max-width: 768px) {
-            .hamburger {
-                display: block;
+            header {
+                flex-direction: column;
+                text-align: center;
             }
-            nav {
-                display: none;
+            .header-content h1 {
+                font-size: 2em;
             }
-
+            .header-content p {
+                font-size: 1em;
+            }
             .cta-button {
-                width: 100%;
                 padding: 0.8em 1.5em;
                 font-size: 1em;
                 max-width: 90%;
-                margin: 0 auto;
+            }
+            .services {
+                flex-direction: column;
             }
         }
 
@@ -182,25 +188,21 @@
                 font-size: 1.5em;
             }
             .header-content p {
-                font-size: 1em;
+                font-size: 0.9em;
             }
-
-            /* Ajuste del botón en pantallas pequeñas */
             .cta-button {
                 padding: 0.6em 1em;
                 font-size: 0.9em;
                 max-width: 100%;
-                white-space: normal; /* Permite ajuste de texto */
-                word-wrap: break-word;
+            }
+            .service img {
+                max-width: 120px;
             }
             .service h3 {
                 font-size: 1.3em;
             }
             .service p {
                 font-size: 1em;
-            }
-            .service img {
-                max-width: 60px;
             }
             .form-container input, .form-container button {
                 padding: 0.8em;
@@ -220,18 +222,6 @@
         <p>Transforma tu negocio con un sitio web profesional y efectivo. Creamos soluciones digitales a medida.</p>
         <a href="#formulario" class="cta-button">Solicita tu presupuesto</a>
     </div>
-    <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#services">Servicios</a></li>
-            <li><a href="#about">Sobre Nosotros</a></li>
-            <li><a href="#formulario">Contacto</a></li>
-        </ul>
-    </nav>
 </header>
 
 <section class="section" id="services">
@@ -283,15 +273,6 @@
     <p>Síguenos en <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
 </footer>
 
-<script>
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('nav-active');
-    });
-</script>
-
 </body>
 </html>
+
