@@ -27,8 +27,9 @@
             color: #F5F7FA;
             padding: 1.5em;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
+            position: relative;
         }
         .logo img {
             max-width: 150px;
@@ -60,31 +61,30 @@
             transform: scale(1.05);
         }
         .cta-button:active {
-            transform: scale(0.98); /* Ajuste para evitar que se haga muy pequeño */
+            transform: scale(0.98);
         }
 
         /* Navegación estilo 'hamburger' para móviles */
         nav {
-            display: none; /* Ocultar el menú por defecto */
+            display: none; /* Ocultar el menú en pantallas grandes */
         }
         .nav-links {
-            display: flex;
             list-style: none;
-            margin: 0;
             padding: 0;
+            margin: 0;
         }
         .nav-links li {
-            margin-left: 20px;
+            margin: 1em 0;
         }
         .nav-links a {
             color: #F5F7FA;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            display: block;
         }
         .hamburger {
-            display: none;
+            display: none; /* Ocultar el botón hamburger en pantallas grandes */
             cursor: pointer;
-            font-size: 1.8em;
         }
         .hamburger div {
             width: 30px;
@@ -104,6 +104,7 @@
         .hamburger.active div:nth-child(3) {
             transform: rotate(45deg) translate(-5px, -6px);
         }
+
         .nav-active {
             display: block;
             position: absolute;
@@ -114,11 +115,6 @@
             text-align: center;
             padding: 1em 0;
             z-index: 10;
-        }
-        .nav-active a {
-            display: block;
-            margin: 1em 0;
-            font-size: 1.5em;
         }
 
         /* Transición suave del menú */
@@ -224,12 +220,18 @@
         /* Media Queries para dispositivos móviles */
         @media screen and (max-width: 768px) {
             .hamburger {
-                display: block;
+                display: block; /* Mostrar el botón hamburger en móviles */
             }
             nav {
                 display: none;
-                flex-direction: column;
-                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 0.8em 1.5em;
+                font-size: 1em;
+                max-width: 90%;
+                margin: 0 auto;
             }
         }
 
@@ -243,6 +245,7 @@
             .cta-button {
                 padding: 0.6em 1.2em;
                 font-size: 0.9em;
+                max-width: 100%;
             }
             .service h3 {
                 font-size: 1.3em;
@@ -341,10 +344,8 @@
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         nav.classList.toggle('nav-active');
-        nav.classList.toggle('show');
     });
 </script>
 
 </body>
 </html>
-
