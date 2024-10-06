@@ -27,7 +27,7 @@
             color: #F5F7FA;
             padding: 1.5em;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             position: relative;
         }
@@ -45,6 +45,8 @@
             font-size: 1.2em;
             margin-bottom: 1.5em;
         }
+
+        /* Botón de llamado a la acción (CTA) */
         .cta-button {
             background-color: #E63946;
             color: white;
@@ -55,77 +57,17 @@
             border-radius: 50px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            white-space: normal; /* Permite que el texto se ajuste en múltiples líneas */
+            word-wrap: break-word; /* Rompe palabras largas si es necesario */
         }
+
         .cta-button:hover {
             background-color: #D62839;
             transform: scale(1.05);
         }
         .cta-button:active {
             transform: scale(0.98);
-        }
-
-        /* Navegación estilo 'hamburger' para móviles */
-        nav {
-            display: none; /* Ocultar el menú en pantallas grandes */
-        }
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .nav-links li {
-            margin: 1em 0;
-        }
-        .nav-links a {
-            color: #F5F7FA;
-            text-decoration: none;
-            font-size: 1.5em;
-            display: block;
-        }
-        .hamburger {
-            display: none; /* Ocultar el botón hamburger en pantallas grandes */
-            cursor: pointer;
-        }
-        .hamburger div {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
-        /* Efectos de animación para la apertura del menú */
-        .hamburger.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        .hamburger.active div:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .nav-active {
-            display: block;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background-color: #27303F;
-            text-align: center;
-            padding: 1em 0;
-            z-index: 10;
-        }
-
-        /* Transición suave del menú */
-        .nav-active {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        .nav-active.show {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Sección de Servicios */
@@ -220,7 +162,7 @@
         /* Media Queries para dispositivos móviles */
         @media screen and (max-width: 768px) {
             .hamburger {
-                display: block; /* Mostrar el botón hamburger en móviles */
+                display: block;
             }
             nav {
                 display: none;
@@ -242,10 +184,14 @@
             .header-content p {
                 font-size: 1em;
             }
+
+            /* Ajuste del botón en pantallas pequeñas */
             .cta-button {
-                padding: 0.6em 1.2em;
+                padding: 0.6em 1em;
                 font-size: 0.9em;
                 max-width: 100%;
+                white-space: normal; /* Permite ajuste de texto */
+                word-wrap: break-word;
             }
             .service h3 {
                 font-size: 1.3em;
