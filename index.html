@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,12 +9,13 @@
     <title>Impulso Digital Web - Desarrollo Web Profesional</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap">
     <style>
+        /* Estilos base */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1F2933; /* Fondo oscuro para todo el sitio */
-            color: #F5F7FA; /* Texto claro para mejor contraste */
+            background-color: #1F2933;
+            color: #F5F7FA;
             overflow-x: hidden;
         }
         .container {
@@ -24,116 +26,152 @@
         header {
             background-color: #27303F;
             color: #F5F7FA;
-            padding: 2em 0;
+            padding: 1.5em;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            position: relative;
-            opacity: 0;
-            transform: translateY(-50px);
-        }
-        .logo {
-            margin-left: 2em;
+            align-items: center;
         }
         .logo img {
-            max-height: 250px; /* Ajusta el tamaño del logotipo */
+            max-width: 150px;
         }
         .header-content {
-            flex: 1;
             text-align: center;
-            opacity: 1;
-            transform: translateY(0);
         }
-        header h1 {
-            font-size: 2.8em;
-            margin: 0;
-            transition: transform 0.5s ease-in-out;
+        .header-content h1 {
+            font-size: 2em;
+            margin: 0.5em 0;
         }
-        header p {
+        .header-content p {
             font-size: 1.2em;
-            margin-top: 0.5em;
+            margin-bottom: 1.5em;
         }
-
-        /* Estilo oscuro y agresivo para los botones de CTA */
         .cta-button {
             background-color: #E63946;
             color: white;
-            padding: 1.2em 2.5em;
+            padding: 1em 2em;
             text-transform: uppercase;
             font-weight: bold;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            margin-top: 1em;
-            display: inline-block;
-            font-size: 1.2em;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .cta-button:hover {
             background-color: #D62839;
             transform: scale(1.05);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+        .cta-button:active {
+            transform: scale(0.95);
         }
 
-        .section {
-            padding: 3em 0;
-            text-align: center;
+        /* Navegación estilo 'hamburger' para móviles */
+        nav {
+            display: none; /* Ocultar el menú por defecto */
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: #F5F7FA;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8em;
+        }
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efectos de animación para la apertura del menú */
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active div:nth-child(2) {
             opacity: 0;
-            transform: translateY(50px);
+        }
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .nav-active {
+            display: block;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background-color: #27303F;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .nav-active a {
+            display: block;
+            margin: 1em 0;
+            font-size: 1.5em;
+        }
+
+        /* Sección de Servicios */
+        .section {
+            padding: 2em 0;
+            text-align: center;
         }
         .section h2 {
-            font-size: 2.4em;
-            color: #F5F7FA;
-        }
-        .section p {
-            font-size: 1.2em;
-            color: #D3D8DE;
-            max-width: 800px;
-            margin: 0 auto;
+            font-size: 2em;
+            margin-bottom: 1em;
         }
         .services {
             display: flex;
-            justify-content: space-between;
-            margin-top: 2em;
+            flex-direction: column;
+            align-items: center;
         }
         .service {
             background-color: #27303F;
-            padding: 2em;
+            padding: 1.5em;
+            margin: 1em 0;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
             text-align: center;
-            width: 22%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .service:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        .service img {
+            max-width: 80px;
+            margin-bottom: 1em;
         }
         .service h3 {
             color: #E63946;
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
         }
         .service p {
+            font-size: 1.1em;
             color: #D3D8DE;
         }
-        .service img {
-            max-width: 100px;
-            margin-bottom: 1em;
-        }
 
+        /* Formulario de contacto */
         .form-container {
             background-color: #27303F;
             padding: 2em;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            margin: 3em auto 0;
-            text-align: left;
-            color: #F5F7FA;
+            max-width: 500px;
+            margin: 2em auto;
         }
         .form-container h2 {
             text-align: center;
             color: #E63946;
+            margin-bottom: 1em;
         }
         .form-container input, .form-container button {
             width: 100%;
@@ -149,25 +187,65 @@
             border: none;
             cursor: pointer;
             font-size: 1.1em;
-            padding: 1.2em;
-            border-radius: 50px;
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
         .form-container button:hover {
             background-color: #D62839;
-            transform: translateY(-3px);
+            transform: scale(1.05);
+        }
+        .form-container button:active {
+            transform: scale(0.95);
         }
 
+        /* Footer */
         footer {
             background-color: #121721;
             color: white;
             text-align: center;
-            padding: 2em 0;
+            padding: 1.5em 0;
         }
         footer a {
             color: #E63946;
             text-decoration: none;
+        }
+
+        /* Media Queries para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header-content h1 {
+                font-size: 1.5em;
+            }
+            .header-content p {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 0.6em 1.2em;
+                font-size: 0.9em;
+            }
+            .service h3 {
+                font-size: 1.3em;
+            }
+            .service p {
+                font-size: 1em;
+            }
+            .service img {
+                max-width: 60px;
+            }
+            .form-container input, .form-container button {
+                padding: 0.8em;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -175,7 +253,6 @@
 
 <header>
     <div class="logo">
-        <!-- Aquí puedes colocar tu logotipo -->
         <img src="logo.webp" alt="Logotipo Impulso Digital Web">
     </div>
     <div class="header-content">
@@ -183,6 +260,18 @@
         <p>Transforma tu negocio con un sitio web profesional y efectivo. Creamos soluciones digitales a medida.</p>
         <a href="#formulario" class="cta-button">Solicita tu presupuesto</a>
     </div>
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#about">Sobre Nosotros</a></li>
+            <li><a href="#formulario">Contacto</a></li>
+        </ul>
+    </nav>
 </header>
 
 <section class="section" id="services">
@@ -213,7 +302,7 @@
 
 <section class="section" id="about">
     <h2>¿Por qué Elegirnos?</h2>
-    <p>Nuestro equipo de desarrollo web cuenta con años de experiencia creando sitios innovadores y eficaces para empresas de todos los tamaños. Nos especializamos en diseño funcional, desarrollo optimizado y posicionamiento SEO para asegurarnos de que tu sitio destaque entre la competencia.</p>
+    <p>Nuestro equipo de desarrollo web cuenta con años de experiencia creando sitios innovadores y eficaces para empresas de todos los tamaños.</p>
 </section>
 
 <section class="section" id="formulario">
@@ -235,33 +324,12 @@
 </footer>
 
 <script>
-    // Animación suave en el scroll
-    document.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('.section, header');
-        const scrollY = window.scrollY;
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
 
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < window.innerHeight - 100) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }
-        });
-    });
-
-    // Validación del formulario
-    const form = document.getElementById('leadForm');
-    form.addEventListener('submit', function(event) {
-        const nombre = form.nombre.value;
-        const email = form.email.value;
-        const telefono = form.telefono.value;
-
-        if (!nombre || !email || !telefono) {
-            alert('Por favor completa todos los campos');
-            event.preventDefault();
-        } else {
-            alert('Formulario enviado correctamente');
-        }
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('nav-active');
     });
 </script>
 
